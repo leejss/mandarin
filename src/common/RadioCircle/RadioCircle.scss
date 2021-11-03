@@ -1,0 +1,33 @@
+.RadioCircle {
+  // Layout
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+
+  // Border
+  border-radius: 100%;
+  border-style: solid;
+  border-width: 2px;
+
+  // Default Size
+  width: 24px;
+  height: 24px;
+  
+}
+
+// Color varaint
+.on {
+  border-color: #fc5c3f;
+  svg  circle {
+    fill: #fc5c3f;
+    
+  }
+
+}
+.off {
+  border-color: gray;
+  svg circle {
+    fill: gray
+  }
+}
