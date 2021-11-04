@@ -1,0 +1,9 @@
+.ButtonGroup {
+  display: flex;
+  > * {
+    margin-left: 10px;
+  }
+  > *:first-child {
+    margin-left: 0px;
+  }
+}

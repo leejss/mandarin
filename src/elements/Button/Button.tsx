@@ -11,7 +11,7 @@ export type ButtonColorType =
   | 'ok'
   | 'danger'
   | 'warning';
-export type ButtonSizeType = SizeType;
+export type ButtonSizeType = 'fit' | SizeType;
 
 export interface ButtonProps {
   className?: string;
@@ -34,7 +34,7 @@ export const Button = ({
   fullWidth,
   loading,
   onClick,
-  size = 'medium',
+  size = 'fit',
   id,
   variant = 'contained',
 }: ButtonProps) => {

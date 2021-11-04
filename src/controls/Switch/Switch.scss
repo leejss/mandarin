@@ -1,0 +1,55 @@
+.Switch {
+  --track-border-color: rgba(128, 128, 128, 0.521);
+  --thumb-color: rgba(128, 128, 128, 0.521);
+  --track-color: #fff;
+  --track-size: 4rem;
+  --thumb-position: 0%;
+  padding: 3px;
+  display: grid;
+  box-sizing: content-box;
+  appearance: none;
+  border: 2px solid var(--track-border-color);
+  border-radius: var(--track-size);
+  // Size of input
+  inline-size: 4rem;
+  block-size: 2rem;
+  // Grid shorthand
+  grid: [track] 1fr / [track] 1fr;
+  pointer-events: none;
+  outline-offset: 5px;
+  align-items: center;
+  background-color: var(--track-color);
+
+  &:checked {
+    --thumb-position: calc(var(--track-size) - 100%);
+    --thumb-color: #fff;
+    --track-color: #fc6c3f;
+    --track-border-color: transparent;
+  }
+
+  &:disabled {
+    &::before {
+      cursor: not-allowed;
+    }
+  }
+
+  // &:hover::before {
+  //   --hightlight-size: 0.5rem;
+  // }
+}
+
+.Switch::before {
+  --hightlight-size: 0;
+  --thumb-highlight: hsl(0 0% 0% / 25%);
+  content: '';
+  inline-size: 2rem;
+  block-size: 2rem;
+  background-color: var(--thumb-color);
+  border-radius: 50%;
+  cursor: pointer;
+  grid-area: track;
+  pointer-events: auto;
+  transform: translateX(var(--thumb-position));
+  transition: all 0.4s;
+  // box-shadow: 0 0 0 var(--hightlight-size) var(--thumb-highlight);
+}

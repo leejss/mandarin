@@ -10,12 +10,11 @@ export type RadioSizeType = {
 
 export interface RadioCircleProps {
   size?: RadioSizeType;
-  on?: boolean;
-  off?: boolean;
+  checked?: boolean;
   onClick?(event: React.MouseEvent<HTMLInputElement>): void;
 }
 
-export const RadioCircle = ({ size, onClick, on, off }: RadioCircleProps) => {
+export const RadioCircle = ({ size, onClick, checked }: RadioCircleProps) => {
   const sizeStyle = css`
     & {
       width: ${size?.width}px;
@@ -23,16 +22,11 @@ export const RadioCircle = ({ size, onClick, on, off }: RadioCircleProps) => {
     }
   `;
 
-  const classnames = cx(
-    'RadioCircle',
-    size && sizeStyle,
-    on && 'on',
-    off && 'off'
-  );
+  const classnames = cx('RadioCircle', size && sizeStyle, checked && 'checked');
 
   return (
     <div className={classnames} onClick={onClick}>
-      {on && <Icon name="circle" />}
+      {checked && <Icon name="circle" />}
     </div>
   );
 };

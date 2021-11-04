@@ -13,18 +13,17 @@
   // Default Size
   width: 24px;
   height: 24px;
-}
 
-// Color varaint
-.on {
-  border-color: #fc5c3f;
-  svg circle {
-    fill: #fc5c3f;
-  }
-}
-.off {
   border-color: gray;
   svg circle {
     fill: gray;
+  }
+
+  // Color varaint
+  &.checked {
+    border-color: #fc5c3f;
+    svg circle {
+      fill: #fc5c3f;
+    }
   }
 }
