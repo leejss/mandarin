@@ -1,4 +1,5 @@
 @import '../../styles/globals';
+
 $default-radius: 5px;
 @mixin outlined($classname, $color) {
   &.#{$classname} {

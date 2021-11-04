@@ -1,0 +1,31 @@
+.Heading {
+  padding: 0;
+  margin: 0;
+
+  &.thin {
+    font-weight: lighter;
+  }
+
+  &.normal {
+    font-weight: normal;
+  }
+
+  &.bold {
+    font-weight: bolder;
+  }
+
+  &.left {
+    text-align: left;
+  }
+
+  &.center {
+    text-align: center;
+  }
+
+  &.right {
+    text-align: right;
+  }
+  &.inline {
+    display: inline-block;
+  }
+}
