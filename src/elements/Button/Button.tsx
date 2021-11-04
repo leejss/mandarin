@@ -4,7 +4,7 @@ import { SizeType } from '../../types';
 import { Icon } from '../../common';
 import './Button.scss';
 
-export type ButtonVariantType = 'text' | 'contained' | 'outlined';
+export type ButtonVariantType = 'contained' | 'outlined';
 export type ButtonColorType =
   | 'primary'
   | 'secondary'

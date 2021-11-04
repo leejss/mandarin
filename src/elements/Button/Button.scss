@@ -1,5 +1,25 @@
 @import '../../styles/globals';
 $default-radius: 5px;
+@mixin outlined($classname, $color) {
+  &.#{$classname} {
+    color: $color;
+    border-color: $color;
+    &:hover {
+      border-color: transparent;
+      background-color: rgba($color, 0.5);
+      color: #eee;
+    }
+  }
+}
+
+@mixin contained($classname, $color) {
+  &.#{$classname} {
+    background: $color;
+    &:hover {
+      background: rgba($color, 0.5);
+    }
+  }
+}
 
 .Button {
   display: inline-flex;
@@ -12,8 +32,6 @@ $default-radius: 5px;
   transition: all 0.1s;
   box-sizing: border-box;
   padding: 5px 8px;
-  color: #fff;
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 
   &.loading {
     cursor: not-allowed;
@@ -37,117 +55,24 @@ $default-radius: 5px;
     height: 40px;
   }
 
-  &.primary {
-    background: $primary;
-    &:hover {
-      background: rgba($primary, 0.5);
-    }
+  &.contained {
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    color: #fff;
+    @include contained(primary, $primary);
+    @include contained(secondary, $secondary);
+    @include contained(ok, $ok);
+    @include contained(danger, $danger);
+    @include contained(warning, $warning);
   }
 
-  &.secondary {
-    background: $secondary;
-    &:hover {
-      background: rgba($secondary, 0.5);
-    }
-  }
-
-  &.ok {
-    background: $ok;
-    &:hover {
-      background: rgba($ok, 0.5);
-    }
-  }
-
-  &.danger {
-    background: $danger;
-    &:hover {
-      background: rgba($danger, 0.5);
-    }
-  }
-
-  &.warning {
-    background: $warning;
-    &:hover {
-      background: rgba($warning, 0.5);
-    }
+  &.outlined {
+    background: none;
+    border-style: solid;
+    border-width: 2px;
+    @include outlined(primary, $primary);
+    @include outlined(secondary, $secondary);
+    @include outlined(ok, $ok);
+    @include outlined(danger, $danger);
+    @include outlined(warning, $warning);
   }
 }
-
-// .contained {
-//   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-//   &.primary {
-//     background: $primary;
-//     &.loading {
-//       background: rgba($primary, 0.5);
-//     }
-//     &:hover {
-//       background: rgba($primary, 0.5);
-//     }
-//   }
-
-//   &.secondary {
-//     background: $secondary;
-//     &:hover {
-//       background: rgba($secondary, 0.5);
-//     }
-//     &.loading {
-//       background: rgba($secondary, 0.5);
-//     }
-//   }
-
-//   &.error {
-//     background: $danger;
-//     &:hover {
-//       background: rgba($danger, 0.5);
-//     }
-//     &.loading {
-//       background: rgba($danger, 0.5);
-//     }
-//   }
-// }
-
-// .text {
-//   background: none;
-//   &:hover {
-//     background: rgba(0, 0, 0, 0.02);
-//     text-decoration: underline;
-//   }
-
-//   &.primary {
-//     color: $primary;
-//   }
-//   &.secondary {
-//     color: $secondary;
-//   }
-//   &.error {
-//     color: $danger;
-//   }
-// }
-
-// .outlined {
-//   background: none;
-//   &.primary {
-//     border: 1px solid $primary;
-//     color: $primary;
-//     &:hover {
-//       border: 1px solid rgba($primary, 0.5);
-//       color: rgba($primary, 0.5);
-//     }
-//   }
-//   &.secondary {
-//     border: 1px solid $secondary;
-//     color: $secondary;
-//     &:hover {
-//       border: 1px solid rgba($secondary, 0.5);
-//       color: rgba($secondary, 0.5);
-//     }
-//   }
-//   &.error {
-//     border: 1px solid $danger;
-//     color: $danger;
-//     &:hover {
-//       border: 1px solid rgba($danger, 0.5);
-//       color: rgba($danger, 0.5);
-//     }
-//   }
-// }

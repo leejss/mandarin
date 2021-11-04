@@ -8,7 +8,7 @@ export default {
   component: Button,
 } as ComponentMeta<typeof Button>;
 
-export const Colors = () => {
+export const Contained = () => {
   return (
     <Stack vertical gutter={10}>
       <Button>Primary Button</Button>
@@ -16,6 +16,37 @@ export const Colors = () => {
       <Button color="ok">Ok Button</Button>
       <Button color="danger">Danger Button</Button>
       <Button color="warning">Warning Button</Button>
+    </Stack>
+  );
+};
+
+export const Outlined = () => {
+  return (
+    <Stack vertical gutter={10}>
+      <Button variant="outlined">Primary</Button>
+      <Button variant="outlined" color="secondary">
+        Secondary
+      </Button>
+      <Button variant="outlined" color="ok">
+        Ok
+      </Button>
+      <Button variant="outlined" color="danger">
+        Danger
+      </Button>
+      <Button variant="outlined" color="warning">
+        Warning
+      </Button>
+    </Stack>
+  );
+};
+
+export const 사이즈 = () => {
+  return (
+    <Stack vertical gutter={10}>
+      <Button size="small">Small</Button>
+      <Button size="medium">Medium</Button>
+      <Button size="large">Large</Button>
+      <Button fullWidth>Full Width</Button>
     </Stack>
   );
 };
