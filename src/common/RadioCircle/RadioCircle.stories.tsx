@@ -1,9 +1,9 @@
-import React from "react";
-import { RadioCircle } from "./RadioCircle";
-import { ComponentMeta } from "@storybook/react";
+import React from 'react';
+import { RadioCircle } from './RadioCircle';
+import { ComponentMeta } from '@storybook/react';
 
 export default {
-  title: "Common/RadioCircle",
+  title: 'Common/RadioCircle',
   component: RadioCircle,
 } as ComponentMeta<typeof RadioCircle>;
 

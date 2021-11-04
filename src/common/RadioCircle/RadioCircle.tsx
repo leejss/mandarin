@@ -1,7 +1,7 @@
-import React from "react";
-import { css, cx } from "@emotion/css";
-import { Icon } from "../Icon/Icon";
-import "./RadioCircle.scss";
+import React from 'react';
+import { css, cx } from '@emotion/css';
+import { Icon } from '../Icon/Icon';
+import './RadioCircle.scss';
 
 export type RadioSizeType = {
   width?: number;
@@ -24,10 +24,10 @@ export const RadioCircle = ({ size, onClick, on, off }: RadioCircleProps) => {
   `;
 
   const classnames = cx(
-    "RadioCircle",
+    'RadioCircle',
     size && sizeStyle,
-    on && "on",
-    off && "off"
+    on && 'on',
+    off && 'off'
   );
 
   return (

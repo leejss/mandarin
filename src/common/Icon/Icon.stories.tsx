@@ -1,9 +1,9 @@
-import React from "react";
-import { ComponentMeta } from "@storybook/react";
-import { Icon } from "./Icon";
+import React from 'react';
+import { ComponentMeta } from '@storybook/react';
+import { Icon } from './Icon';
 
 export default {
-  title: "Common/Icon",
+  title: 'Common/Icon',
   component: Icon,
 } as ComponentMeta<typeof Icon>;
 

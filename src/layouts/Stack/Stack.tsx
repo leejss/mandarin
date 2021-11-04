@@ -1,11 +1,11 @@
-import React from "react";
-import cx from "classnames";
-import "./Stack.scss";
-import { JustifyType } from "../../types";
-import { css } from "@emotion/css";
+import React from 'react';
+import cx from 'classnames';
+import './Stack.scss';
+import { JustifyType } from '../../types';
+import { css } from '@emotion/css';
 
 export type StackJustifyType = JustifyType;
-export type StackAlingType = "start" | "center" | "end";
+export type StackAlingType = 'start' | 'center' | 'end';
 
 export interface StackProps {
   gutter?: number;
@@ -15,8 +15,7 @@ export interface StackProps {
   reverse?: boolean;
   justify?: StackJustifyType;
   align?: StackAlingType;
-  fullWidth?: boolean;
-  fullHeight?: boolean;
+
   className?: string;
 }
 
@@ -29,8 +28,6 @@ export const Stack: React.FC<StackProps> = ({
   reverse,
   justify,
   align,
-  fullHeight,
-  fullWidth,
   className,
 }) => {
   const gutterStlye = css`
@@ -53,11 +50,11 @@ export const Stack: React.FC<StackProps> = ({
     }
   `;
   const classnames = cx(
-    "Stack",
-    inline && "inline",
-    horizontal && "horizontal",
-    vertical && "vertical",
-    reverse && "reverse",
+    'Stack',
+    inline && 'inline',
+    horizontal && 'horizontal',
+    vertical && 'vertical',
+    reverse && 'reverse',
     justify && justify,
     align && `align-${align}`,
     gutter && gutterStlye,

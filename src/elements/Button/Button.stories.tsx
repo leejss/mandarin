@@ -1,10 +1,10 @@
-import React from "react";
-import { Button } from "./Button";
-import { ComponentMeta } from "@storybook/react";
-import { Stack } from "../../layouts/Stack";
+import React from 'react';
+import { Button } from './Button';
+import { ComponentMeta } from '@storybook/react';
+import { Stack } from '../../layouts/Stack';
 
 export default {
-  title: "Element/Button",
+  title: 'Element/Button',
   component: Button,
 } as ComponentMeta<typeof Button>;
 

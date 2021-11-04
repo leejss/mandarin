@@ -1,16 +1,16 @@
-import classNames from "classnames";
-import React from "react";
-import { SizeType } from "../../types";
-import { Icon } from "../../common";
-import "./Button.scss";
+import classNames from 'classnames';
+import React from 'react';
+import { SizeType } from '../../types';
+import { Icon } from '../../common';
+import './Button.scss';
 
-export type ButtonVariantType = "text" | "contained" | "outlined";
+export type ButtonVariantType = 'text' | 'contained' | 'outlined';
 export type ButtonColorType =
-  | "primary"
-  | "secondary"
-  | "ok"
-  | "danger"
-  | "warning";
+  | 'primary'
+  | 'secondary'
+  | 'ok'
+  | 'danger'
+  | 'warning';
 export type ButtonSizeType = SizeType;
 
 export interface ButtonProps {
@@ -29,22 +29,22 @@ export interface ButtonProps {
 export const Button = ({
   children,
   className,
-  color = "primary",
+  color = 'primary',
   disabled,
   fullWidth,
   loading,
   onClick,
-  size = "medium",
+  size = 'medium',
   id,
-  variant = "contained",
+  variant = 'contained',
 }: ButtonProps) => {
   const classnames = classNames(
-    "Button",
+    'Button',
     variant && variant,
     color && color,
-    disabled && "disabled",
-    fullWidth && "fullWidth",
-    loading && "loading",
+    disabled && 'disabled',
+    fullWidth && 'fullWidth',
+    loading && 'loading',
     size && `size-${size}`,
     className
   );
