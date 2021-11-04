@@ -1,0 +1,46 @@
+.Stack {
+  display: flex;
+  &.vertical {
+    flex-direction: column;
+  }
+  &.horizontal {
+    flex-direction: row;
+  }
+  &.inline {
+    display: inline-flex;
+  }
+
+  &.start {
+    justify-content: flex-start;
+  }
+  &.end {
+    justify-content: flex-end;
+  }
+
+  &.center {
+    justify-content: center;
+  }
+
+  &.around {
+    justify-content: space-around;
+  }
+
+  &.align-start {
+    align-items: flex-start;
+  }
+
+  &.align-center {
+    align-items: center;
+  }
+
+  &.align-end {
+    align-items: flex-end;
+  }
+
+  &.evenly {
+    justify-content: space-evenly;
+  }
+  &.between {
+    justify-content: space-between;
+  }
+}
