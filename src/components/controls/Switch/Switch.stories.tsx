@@ -1,6 +1,5 @@
 import React from 'react';
 import { Switch } from './Switch';
-import type { SwitchProps } from './Switch';
 import { ComponentMeta } from '@storybook/react';
 
 export default {

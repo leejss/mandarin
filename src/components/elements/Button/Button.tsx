@@ -34,7 +34,7 @@ export const Button = ({
   fullWidth,
   loading,
   onClick,
-  size = 'fit',
+  size = 'medium',
   id,
   variant = 'contained',
 }: ButtonProps) => {
