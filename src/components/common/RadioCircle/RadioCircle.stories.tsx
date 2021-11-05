@@ -11,9 +11,9 @@ export const Basic = () => {
   return (
     <div>
       <h3>On</h3>
-      <RadioCircle on />
+      <RadioCircle checked />
       <h3>Off</h3>
-      <RadioCircle off />
+      <RadioCircle />
     </div>
   );
 };

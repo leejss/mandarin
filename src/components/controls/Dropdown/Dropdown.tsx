@@ -1,46 +1,64 @@
 import React from 'react';
+import { usePrefixId } from '../../../hooks/usePrefixId';
+import cx from 'classnames';
 
 interface Option {
-  /** 화면에 보이는 텍스트 */
   label: string;
-  /** onChange에 넘어가는 값 */
   value: string;
-  /** Select를 금지한다 */
   disabled?: boolean;
-  /** 옵션 라벨 왼쪽에 붙은 값 */
-  prefix?: React.ReactNode;
 }
 
 export type SelectOption = string | Option;
 
 export interface DropdownProps {
-  /** 옵션 리스트 */
-  options: SelectOption[];
-  /** Dropdown의 라벨 */
-  label: React.ReactNode;
-  /** Dropdown의 클래스네임 */
+  options?: SelectOption[];
+  value?: string;
+  name?: string;
+  disabled?: boolean;
   className?: string;
-  /** Dropdown의 placeholder */
-  placeholder?: string;
-  /** selection이 바뀔 때 콜백 함수 */
+  defaultValue?: string;
   onChange?(selected: string, id: string): void;
-  /** select가 focus되었을 때 콜백 함수 */
   onFocus?(): void;
-  /** focus가 사라졌을 때 콜백함수 */
   onBlur?(): void;
 }
 
 // normalize options -> string => option object
 
 export const Dropdown: React.FC<DropdownProps> = ({
-  label,
-  options,
+  options = [],
+  name,
+  value,
+  disabled,
   className,
   onBlur,
   onChange,
   onFocus,
 }) => {
-  return <div></div>;
+  const id = usePrefixId('Dropdown', className);
+  const classNames = cx('Dropdown');
+  const handleChange = onChange
+    ? (event: React.ChangeEvent<HTMLSelectElement>) => {
+        onChange(event.currentTarget.value, id);
+      }
+    : undefined;
+
+  const normalizedOptions: Option[] = options.map(normalizeOption);
+  const optionsMarkup = normalizedOptions.map(renderOption);
+
+  return (
+    <div className={classNames}>
+      <select
+        name={name}
+        value={value}
+        disabled={disabled}
+        onChange={handleChange}
+        onFocus={onFocus}
+        onBlur={onBlur}
+      >
+        {optionsMarkup}
+      </select>
+    </div>
+  );
 };
 
 function isString(option: SelectOption): option is string {
@@ -54,10 +72,24 @@ function normalizeStringOption(optionText: string): Option {
   };
 }
 
-function normalizeOption(option: Option) {
+function normalizeOption(option: SelectOption) {
   if (isString(option)) {
     return normalizeStringOption(option);
   } else {
     return option;
   }
+}
+
+function renderOption(option: Option) {
+  const { label, value, ...rest } = option;
+  return (
+    <option key={value} value={value} {...rest}>
+      {label}
+    </option>
+  );
+}
+
+function getSelectedOption(options: Option[], value: string): Option {
+  const selectedOption = options.find((option) => option.value === value);
+  return selectedOption || { value: '', label: '' };
 }
