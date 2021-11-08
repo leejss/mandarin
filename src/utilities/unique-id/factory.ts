@@ -3,8 +3,6 @@ type IdGenerator = () => string;
 type IdGeneratorFactory = (prefix: string) => IdGenerator;
 type prefix = string;
 
-/** Flow  */
-
 // Id generator factory
 export class UniqueIdFactory {
   private idGeneratorFactory: IdGeneratorFactory;

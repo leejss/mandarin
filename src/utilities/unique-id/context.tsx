@@ -6,7 +6,6 @@ export const UniqueIdFactoryContext =
 
 export const UniqueIdProvider: React.FC = ({ children }) => {
   const uniqueIdFactory = new UniqueIdFactory(globalIdGeneratorFactory);
-
   return (
     <UniqueIdFactoryContext.Provider value={uniqueIdFactory}>
       {children}

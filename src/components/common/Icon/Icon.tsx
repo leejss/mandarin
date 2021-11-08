@@ -27,7 +27,7 @@ export const Icon: React.FC<IconProps> = ({ name, onClick, height, width }) => {
       height: ${height}px;
     }
   `;
-  const classnames = cx('Icon', width && widthStyle, height && heighStyle);
+  const classnames = cx('Icon', widthStyle, heighStyle);
   switch (name) {
     case 'close':
       return <SVGClose className={classnames} onClick={onClick} />;

@@ -1,6 +1,5 @@
 import React from 'react';
 import { Dropdown } from './Dropdown';
-import type { DropdownProps } from './Dropdown';
 import { ComponentMeta } from '@storybook/react';
 
 export default {
@@ -9,6 +8,10 @@ export default {
 } as ComponentMeta<typeof Dropdown>;
 
 export const 기본드랍다운 = () => {
+  const [selected, setSelected] = React.useState('today');
+  const handleSelectChange = (value: string) => {
+    setSelected(value);
+  };
   const options = [
     { label: 'Today', value: 'today' },
     { label: 'Yesterday', value: 'yesterday' },
@@ -16,7 +19,12 @@ export const 기본드랍다운 = () => {
   ];
   return (
     <div>
-      <Dropdown label="Basic Dropdown" options={options} />
+      <Dropdown
+        label="Basic Dropdown"
+        options={options}
+        value={selected}
+        onChange={handleSelectChange}
+      />
     </div>
   );
 };

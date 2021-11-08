@@ -17,6 +17,11 @@
     "jsx": "react",
     "typeRoots": ["./src/@types", "./node_modules/@types"]
   },
-  "include": ["./src/*", "src/components/collections", "src/components/types.ts"],
+  "include": [
+    "./src/*",
+    "src/components/collections",
+    "src/components/types.ts",
+    "./jest-setup.ts"
+  ],
   "exclude": ["node_modules"]
 }

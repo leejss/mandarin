@@ -50,3 +50,15 @@ export const 사이즈 = () => {
     </Stack>
   );
 };
+
+export const 살다버튼 = () => {
+  return (
+    <div
+      style={{
+        width: '328px',
+      }}
+    >
+      <Button fullWidth>버튼</Button>
+    </div>
+  );
+};

@@ -1,6 +1,8 @@
 import React from 'react';
-import { usePrefixId } from '../../../hooks/usePrefixId';
 import cx from 'classnames';
+import './Dropdown.scss';
+import { Icon } from '../../common';
+import { usePrefixId } from '../../../hooks/usePrefixId';
 
 interface Option {
   label: string;
@@ -17,54 +19,71 @@ export interface DropdownProps {
   disabled?: boolean;
   className?: string;
   defaultValue?: string;
-  onChange?(selected: string, id: string): void;
+  label?: string;
+  onChange?(selected: string): void;
   onFocus?(): void;
   onBlur?(): void;
 }
-
-// normalize options -> string => option object
 
 export const Dropdown: React.FC<DropdownProps> = ({
   options = [],
   name,
   value,
+  label,
   disabled,
   className,
   onBlur,
   onChange,
   onFocus,
 }) => {
-  const id = usePrefixId('Dropdown', className);
-  const classNames = cx('Dropdown');
+  const [listShow, setListShow] = React.useState(false);
+  const handleClick = () => {
+    setListShow((p) => !p);
+  };
+  const id = usePrefixId('Dropdown', 1);
+  const classNames = cx('Dropdown', className);
   const handleChange = onChange
     ? (event: React.ChangeEvent<HTMLSelectElement>) => {
-        onChange(event.currentTarget.value, id);
+        onChange(event.currentTarget.value);
       }
     : undefined;
 
   const normalizedOptions: Option[] = options.map(normalizeOption);
   const optionsMarkup = normalizedOptions.map(renderOption);
+  const itemMarkup = listShow && normalizedOptions.map(renderItem);
 
   return (
     <div className={classNames}>
-      <select
-        name={name}
-        value={value}
-        disabled={disabled}
-        onChange={handleChange}
-        onFocus={onFocus}
-        onBlur={onBlur}
-      >
-        {optionsMarkup}
-      </select>
+      <div className="SelectInputWrapper">
+        <div className="SelectInput">
+          <label htmlFor={id}>{value}</label>
+          <Icon name="arrowDown" onClick={handleClick} />
+        </div>
+        <select
+          id={id}
+          aria-label={label}
+          name={name}
+          value={value}
+          disabled={disabled}
+          onChange={handleChange}
+          onFocus={onFocus}
+          onBlur={onBlur}
+        >
+          {optionsMarkup}
+        </select>
+      </div>
+
+      <ul>{itemMarkup}</ul>
     </div>
   );
 };
 
+// String type 검사
 function isString(option: SelectOption): option is string {
   return typeof option === 'string';
 }
 
+// String으로 주어진 옵션을 객체로 transform
 function normalizeStringOption(optionText: string): Option {
   return {
     label: optionText,
@@ -72,6 +91,7 @@ function normalizeStringOption(optionText: string): Option {
   };
 }
 
+// SelectOption타입을 받아 uniform 옵션을 리턴
 function normalizeOption(option: SelectOption) {
   if (isString(option)) {
     return normalizeStringOption(option);
@@ -80,6 +100,7 @@ function normalizeOption(option: SelectOption) {
   }
 }
 
+// Render Option
 function renderOption(option: Option) {
   const { label, value, ...rest } = option;
   return (
@@ -89,7 +110,8 @@ function renderOption(option: Option) {
   );
 }
 
-function getSelectedOption(options: Option[], value: string): Option {
-  const selectedOption = options.find((option) => option.value === value);
-  return selectedOption || { value: '', label: '' };
+// Render div option
+function renderItem(option: Option) {
+  const { label, value } = option;
+  return <li key={value}>{label}</li>;
 }

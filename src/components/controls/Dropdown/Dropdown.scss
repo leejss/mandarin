@@ -1,2 +1,45 @@
+@import '../../../styles/globals';
+
 .Dropdown {
+  width: 120px;
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-sizing: border-box;
+    position: absolute;
+    line-height: 1.5;
+    padding: 8px 0;
+    margin: 0px;
+    list-style-type: none;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 5px -3px,
+      rgba(0, 0, 0, 0.14) 0px 8px 10px 1px, rgba(0, 0, 0, 0.12) 0px 3px 14px 2px;
+  }
+
+  li {
+    cursor: pointer;
+    padding: 6px 1rem 6px 1rem;
+    &:hover {
+      background: rgba($primary, 0.2);
+    }
+  }
+
+  select {
+    position: relative;
+    width: 100%;
+  }
+}
+
+.SelectInputWrapper {
+  position: relative;
+  border: 1px solid black;
+  padding: 8px;
+}
+
+.SelectInput {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }

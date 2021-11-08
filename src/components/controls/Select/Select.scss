@@ -1,0 +1,60 @@
+@import '../../../styles/globals';
+.SelectWrapper {
+  position: relative;
+  width: 500px;
+
+  button {
+    border: 1px solid rgba(0, 0, 0, 0.33);
+    border-radius: 4px;
+    display: inline-block;
+    background: transparent;
+    padding: 0;
+    width: 100%;
+  }
+}
+
+.Select {
+  display: flex;
+  box-sizing: border-box;
+  max-width: 100%;
+  align-items: center;
+  justify-content: space-between;
+
+  input {
+    border: none;
+    background: transparent;
+    box-sizing: border-box;
+    appearance: none;
+    padding: 11px;
+    flex: 1;
+    outline: none;
+    margin: 0px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+}
+
+.OptionList {
+  position: absolute;
+  border-radius: 4px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  min-width: 100%;
+  background-color: rgb(255, 255, 255);
+  color: rgb(68, 68, 68);
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 4px;
+
+  button {
+    border: none;
+    outline: none;
+    text-align: start;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 12px;
+    &:hover {
+      background: rgb(213, 255, 246);
+      cursor: pointer;
+    }
+  }
+}
